@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <title>Ytools</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* Style the scrollbar */
+body::-webkit-scrollbar {
+  width: 12px; /* Set width of vertical scrollbar */
+  height: 12px; /* Set height of horizontal scrollbar */
+}
+
+/* Style the scrollbar track (the background) */
+body::-webkit-scrollbar-track {
+  background-color: #000;
+  border-radius: 10px;
+}
+
+/* Style the scrollbar thumb (the draggable part) */
+body::-webkit-scrollbar-thumb {
+  background-color: #000;
+  border-radius: 10px;
+}
+
+/* Style the scrollbar thumb when hovered */
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #000;
+}
+
+</style>
+<style>
+.sidenavx {
+display: initial;
+  height: 100%; /* 100% Full-height */
+  width: 100%; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 9998; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: rgba(0, 0, 0, 0); /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+text-align: left;
+flex-direction: column;
+pointer-events: none;
+            align-items: left;
+  transition: 1s; /* 0.5 second transition effect to slide in the sidenav */
+}
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 9999; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #fff; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+text-align: left;
+flex-direction: column;
+            align-items: left;
+  transition: 0.6s; /* 0.5 second transition effect to slide in the sidenav */
+box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.1);
+border-right: 1px solid #000;
+}
+
+.sidenav a{
+padding-bottom: 20px;
+padding-left: 20px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.3s;
+white-space: nowrap;
+color: #000000;
+user-select: none;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f00;
+padding-left: 45px;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+font-size: 32px;
+  position: absolute;
+  top: 9px;
+  right: 25px;
+  margin-left: 50px;
+}
+
+</style>
+
+    <style>
+        /* Reset some basic styles */
+        body, h1, h2, p, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            box-sizing: border-box;
+font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+-webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        body {
+            line-height: 1.6;
+            color: #000;
+            background-color: #f4f4f9;
+        }
+html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Header styles */
+        header {
+            background: #000;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1rem;
+        }
+
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+transition: 0.5s;
+        }
+
+        header nav ul {
+            display: flex;
+            width: 100%;
+        }
+
+        header nav ul li {
+            margin: 0 10px;
+        }
+
+        header nav ul li {
+            color: #fff;
+            text-decoration: none;
+            transition: 0.25s;
+        }
+
+        header nav ul li:hover {
+            color: #f00;
+            border-radius: 5px;
+        }
+main {
+            padding: 2rem;
+        }
+
+        /* File downloader styles */
+        .file-downloader {
+border: 1px solid #999;
+box-shadow: 4px 4px 10px #ddd;
+            background: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            /*text-align: center;*/
+width: 90%;
+        }
+
+        .file-downloader button {
+            margin-top: 0.5rem;
+border: 1px solid #999;
+            padding: 0.5rem 1.3rem;
+            background: #fff;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+font-family: 'Poppins', sans-serif;
+width: 100%;
+        }
+.file-downloader button:hover{
+background: #f00;
+border: 1px solid #000;
+}
+
+        /* Footer styles */
+        footer {
+            text-align: center;
+            background: #000;
+            color: #fff;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+
+    .textarea {
+      width: 100%;
+      height: 300px;
+      white-space: wrap;
+      overflow: hidden;
+      resize: none;
+      font-size: 14px;
+      outline: none;
+      padding: 0px;
+border-radius: 4px;
+    }
+
+    </style>
+</head>
+<body>
+ <div id="mySidenavx" class="sidenavx"></div>
+<div id="mySidenav" class="sidenav">
+
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="font-family: Arial !important;
+    font-size: Arial !important;">&times;</a>
+<a href="javascript:void(0)"><i class="fas fa-desktop"></i>&nbspVideo</a>
+<a href="javascript:void(0)"><i class="fas fa-mobile-alt"></i>&nbspShort</a>
+ <a href="javascript:void(0)"><i class="fas fa-music"></i>&nbspMusic<a href="javascript:void(0)"><i class="fas fa-volume-up"></i>&nbspVoice</a>
+ <a href="javascript:void(0)"><i class="fas fa-font"></i>&nbspCaption</a>
+<!--<a href="javascript:void(0)" onclick="openWeb('https://ko-fi.com/ctrpixai')"><i class="fas fa-font"></i>&nbspCaptions</a>-->
+ <a href="javascript:void(0)"><i class="fas fa-image"></i>&nbspImage</a>
+<a href="javascript:void(0)"><i class="fas fa-search"></i>&nbspSEO</a>
+<a href="javascript:void(0)"><i class="fas fa-pen"></i>&nbspScript</a>
+
+</div>
+    <header>
+    
+        <div class="logo" onclick="openNav()" id="logoText"><i class="fas fa-bars"></i>&nbspYtools</div>
+        <nav>
+            <ul>
+<li><i class="fas fa-home"></i></li>
+                <li><i class="fas fa-bell"></i></li>      
+<li><i class="fas fa-user"></i></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="about">
+            <h2>Welcome back, Calvin.</h2>
+            <p>We have more video ideas for you.</p>
+        </div>
+        <div id="download" class="file-downloader">
+            <span style="display: inline-flex;"><h2>AI Voice<h2 style="color: #999;">/female_001</h2></h2></span>
+    <textarea class="textarea" id="textArea" placeholder="Enter text..."></textarea><span style="color: #999;" id="charCount">0/100 characters</span>
+            <button onclick="downloadFile()">Play</button><div style="display: flex;"><button onclick="downloadFile()">GENERATE</button><p style="padding: 3px; opacity: 0;">|</p><button onclick="downloadFile()">DOWNLOAD</button></div>
+        </div>
+    </main>
+    <footer>
+        <p>Copyright &copy; 2025-2025 Ytools.</p>
+    </footer>
+    <script>
+const textarea = document.getElementById("textArea");
+        const charCount = document.getElementById("charCount");
+
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+document.getElementById("mySidenavx").style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+document.getElementById("logoText").style.transitionDelay = "0s";
+document.getElementById("logoText").style.color = "#f00";
+disableScroll();
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+document.getElementById("mySidenavx").style.backgroundColor = "rgba(0, 0, 0, 0)";
+
+}
+
+function openWeb(webpage){
+window.open(webpage, "_blank");
+}
+
+document.getElementById("mySidenav").addEventListener("transitionend", () => {
+ let cssValue = document.getElementById("mySidenav").style.width;
+let intValue = parseInt(cssValue);
+ if(intValue === 0){
+enableScroll();
+document.getElementById("logoText").style.transitionDelay = "0.1s";
+document.getElementById("logoText").style.color = "#fff";
+}
+});
+
+var keys = {37: 1, 38: 1, 39: 1, 40: 1};
+
+function preventDefault(e) {
+  e.preventDefault();
+}
+
+function preventDefaultForScrollKeys(e) {
+  if (keys[e.keyCode]) {
+    preventDefault(e);
+    return false;
+  }
+}
+
+// modern Chrome requires { passive: false } when adding event
+var supportsPassive = false;
+try {
+  window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
+    get: function () { supportsPassive = true; } 
+  }));
+} catch(e) {}
+
+var wheelOpt = supportsPassive ? { passive: false } : false;
+var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
+
+// call this to Disable
+function disableScroll() {
+window.top.document.title = "CTRpixAI | side bar";
+  window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF
+  window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
+  window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
+  window.addEventListener('keydown', preventDefaultForScrollKeys, false);
+}
+
+// call this to Enable
+function enableScroll() {
+window.top.document.title = "CTRpixAI";
+  window.removeEventListener('DOMMouseScroll', preventDefault, false);
+  window.removeEventListener(wheelEvent, preventDefault, wheelOpt); 
+  window.removeEventListener('touchmove', preventDefault, wheelOpt);
+  window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
+}
+window.top.document.title = "CTRpixAI";
+
+        function downloadFile() {
+            // Define the file content
+            const content = "This is a dynamically generated file.\n\nThank you for visiting!";8
+            // Create a Blob object
+            const blob = new Blob([content], { type: "text/plain" });
+            // Create a link element
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "example-file.txt";
+            // Append the link, trigger the download, and remove the link
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+textarea.addEventListener('input', () => {
+            const textLength = textarea.value.length;
+            charCount.textContent = `${textLength}/400 characters`;
+        });
+textarea.addEventListener('keydown', (event) => {
+            if (event.key === "Enter") {
+                event.preventDefault(); // Prevent default behavior (line skip)
+            }
+        });
+    </script>
+</body>
+</html>
